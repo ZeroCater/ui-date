@@ -96,6 +96,10 @@ angular.module('ui.date', [])
         });
         modelCtrl.$parsers.push(function(value){
           if (value) {
+            if(typeof value == "string"){
+              //handle user input
+              return value;
+            }
             return jQuery.datepicker.formatDate(dateFormat, value);
           }
           return null;
